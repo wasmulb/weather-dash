@@ -3,6 +3,7 @@ var cityInputEl = document.getElementById("text-input")
 var currentEl = document.getElementById("current-weather")
 var fiveDayEl = document.getElementById("five-day")
 var pastSearch = document.getElementById("past-search")
+var pastSearchButtons = document.getElementsByClassName("past-search-class")
 //here
 var testIcon = "10d"
 //var currentIcon = document.getElementById("current-icon").src="http://openweathermap.org/img/wn/"+testIcon+"@2x.png"
@@ -99,7 +100,9 @@ function localStorageFun(){
      for(let i =0;i<previousSearch.length;i++){
   var pastEl = document.createElement("li")   
   pastEl.innerText = previousSearch[i]
-  pastSearch.appendChild(pastEl)}}
+  pastSearch.appendChild(pastEl)
+  pastEl.setAttribute("class", "past-search-class")
+}}
 
 localStorageFun()
 
@@ -111,4 +114,8 @@ submitButton.addEventListener("click", function(){
     localStorage.setItem("weatherAPI",JSON.stringify(previousSearch))
     pastSearch.innerHTML = ""
     localStorageFun()
+})
+
+pastSearchButtons.addEventListener("click", function(){
+    console.log("it worked")
 })
