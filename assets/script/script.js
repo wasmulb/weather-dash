@@ -94,17 +94,21 @@ function kToF(kelvin){
     return far
 }
 
-function localStorageFun(){
-    var city = localStorage.getItem(city)
-    var pastEl = document.createElement("li")
-    pastEl.innerHTML = city
-    pastSearch.appendChild(pastEl)
-}
+function localStorageFun(){   
+    var previousSearch = JSON.parse(localStorage.getItem("weatherAPI"))||[]
+     for(let i =0;i<previousSearch.length;i++){
+  var pastEl = document.createElement("li")   
+  pastEl.innerText = previousSearch[i]
+  pastSearch.appendChild(pastEl)}}
 
 localStorageFun()
 
-submitButton.addEventListener("click", function(){
-    getCurrentWeather()
-    city = cityInputEl.value
-    localStorage.setItem(city, city)
+submitButton.addEventListener("click", function(){   
+    var previousSearch = JSON.parse(localStorage.getItem("weatherAPI"))||[]
+  city = cityInputEl.value  
+   getCurrentWeather()  
+  previousSearch.push(city)
+    localStorage.setItem("weatherAPI",JSON.stringify(previousSearch))
+    pastSearch.innerHTML = ""
+    localStorageFun()
 })
