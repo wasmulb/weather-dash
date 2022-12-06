@@ -1,0 +1,79 @@
+/* Universal */
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0%;
+    padding: 0%;
+}
+
+/* Color Palette */
+:root {
+    --primary-color: rgb(93, 183, 222);
+    --secondary-color: rgb(163,155,139);
+    --tertiary-color: rgb(241,233,219);
+}
+/* Header Styles */
+header {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    color:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh;
+}
+
+.search-bar {
+    background-color: var(--tertiary-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#past-search {
+    background-color: var(--tertiary-color);
+    display: flex;
+    flex-direction: column;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#past-search li {
+    background-color: black;
+    color: azure;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+    border-color: azure;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+#past-search li:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+#current-weather {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px;
+    border-color: black;
+    border-style: solid;
+    border-color: black;
+}
+
+#five-day {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-style: solid;
+    border-color: black;
+    border-top: 0px;
+}

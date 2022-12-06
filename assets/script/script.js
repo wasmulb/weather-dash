@@ -4,16 +4,12 @@ var currentEl = document.getElementById("current-weather")
 var fiveDayEl = document.getElementById("five-day")
 var pastSearch = document.getElementById("past-search")
 var pastSearchButtons = document.getElementsByClassName("past-search-class")
-//here
-var testIcon = "10d"
-//var currentIcon = document.getElementById("current-icon").src="http://openweathermap.org/img/wn/"+testIcon+"@2x.png"
 var todaysDate = dayjs().format("MM/DD/YYYY")
 var cityURL = "http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}"
 var baseURL = "https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
 var apiKey = "da2b293b3075b313e8d3a2cdf1a6b944"
-//http://openweathermap.org/img/wn/10d@2x.png
 
-//City fetcher
+//City/weather fetcher
 function getCurrentWeather(){
 var city = cityInputEl.value
 fetch("http://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=da2b293b3075b313e8d3a2cdf1a6b944")
@@ -40,10 +36,8 @@ fetch("http://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=da2b293b307
         currentIcon.setAttribute("src", "https://openweathermap.org/img/w/"+icon+".png");
         console.log(icon)
         var headerEl = document.createElement("h2")
-        //var iconTestEl = document.innerHTML = "<img src = '//http://openweathermap.org/img/wn/10d@2x.png'>"
         headerEl.innerHTML = "Current Weather in " + city +" "+ todaysDate+":" 
         currentEl.appendChild(headerEl)
-        //var currentIcon = document.getElementById("current-icon").setAttribute("src", "https://openweathermap.org/img/w/"+icon+".png");
         var tempEl = document.createElement("p")
         var windEl= document.createElement("p")
         var humEl = document.createElement("p")
@@ -61,7 +55,6 @@ fetch("http://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=da2b293b307
             fiveDayEl.appendChild(forecastDiv)
             var forecastHeaderEl = document.createElement("h2")
             var forecastIcon = document.createElement("img")
-            //forecastIcon.setAttribute("src", "https://openweathermap.org/img/w/"+icon+".png")
             var forecastTempEl = document.createElement("p")
             var forecastWindEl= document.createElement("p")
             var forecastHumEl = document.createElement("p")
@@ -116,6 +109,10 @@ submitButton.addEventListener("click", function(){
     localStorageFun()
 })
 
-pastSearchButtons.addEventListener("click", function(){
-    console.log("it worked")
-})
+// pastSearch.addEventListener("click", function(){
+//     console.log("it worked")
+// })
+
+// function handleSearchHistoryClick(e) {
+//   var btn = e.target
+// }
