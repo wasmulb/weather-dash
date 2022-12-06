@@ -5,14 +5,14 @@ var fiveDayEl = document.getElementById("five-day")
 var pastSearch = document.getElementById("past-search")
 var pastSearchButtons = document.getElementsByClassName("past-search-class")
 var todaysDate = dayjs().format("MM/DD/YYYY")
-var cityURL = "http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}"
+var cityURL = "https://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}"
 var baseURL = "https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
 var apiKey = "da2b293b3075b313e8d3a2cdf1a6b944"
 
 //City/weather fetcher
 function getCurrentWeather(){
 var city = cityInputEl.value
-fetch("http://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=da2b293b3075b313e8d3a2cdf1a6b944")
+fetch("https://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=da2b293b3075b313e8d3a2cdf1a6b944")
 .then(function(response) {
     return response.json();
 })
